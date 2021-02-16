@@ -15,6 +15,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = ({
   dispatch,
 }) => {
   const { pathname } = location;
+  const showBottomNav = pathname !== '/login';
 
   useEffect(() => {
     // 获取用户基本信息
@@ -27,9 +28,11 @@ const BasicLayout: React.FC<BasicLayoutProps> = ({
   return (
     <div className={styles.main}>
       <article>{children}</article>
-      <footer>
-        <BottomNav pathname={pathname} />
-      </footer>
+      {showBottomNav && (
+        <footer>
+          <BottomNav pathname={pathname} />
+        </footer>
+      )}
     </div>
   );
 };

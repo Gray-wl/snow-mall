@@ -1,5 +1,5 @@
 import { Effect, Reducer } from 'umi';
-import { queryCurrent } from '@/services/user';
+import { fakeAccountLogout, queryCurrent, queryDetail } from '@/services/user';
 import { fakeAccountLogin } from '@/services/login';
 import { Toast } from 'antd-mobile';
 
@@ -41,6 +41,8 @@ export interface UserModelType {
   effects: {
     fetchCurrent: Effect;
     login: Effect;
+    queryDetail: Effect;
+    logout: Effect;
   };
   reducers: {
     saveUser: Reducer<UserModelState>;
@@ -75,6 +77,26 @@ const UserModel: UserModelType = {
       } else {
         Toast.fail(response.msg || '系统开小差，请稍后再试~');
       }
+    },
+    *queryDetail(_, { call, put }) {
+      const response = yield call(queryDetail);
+      yield put({
+        type: 'saveUser',
+        payload: { detail: { ...response } },
+      });
+    },
+    *logout(_, { call, put }) {
+      yield call(fakeAccountLogout);
+      yield put({
+        type: 'clearUser',
+        payload: {
+          currentUser: {},
+          detail: {
+            name: '',
+            icon: '',
+          },
+        },
+      });
     },
   },
   reducers: {
