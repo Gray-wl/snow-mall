@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { connect, Redirect } from 'umi';
 import { ConnectState, ConnectProps, UserModelState } from '@/models/connect';
 
 interface SecurityLayoutProps extends ConnectProps {
   user: UserModelState;
+  children: ReactElement;
 }
 
 const SecurityLayout: React.FC<SecurityLayoutProps> = ({
@@ -22,7 +23,7 @@ const SecurityLayout: React.FC<SecurityLayoutProps> = ({
     );
   }
 
-  return <div>{children}</div>;
+  return children;
 };
 
 export default connect(({ user }: ConnectState) => ({ user }))(SecurityLayout);
