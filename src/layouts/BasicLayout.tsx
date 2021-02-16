@@ -9,8 +9,11 @@ interface BasicLayoutProps extends ConnectProps {
   user: UserModelState;
 }
 
-const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
-  const { children, location, dispatch } = props;
+const BasicLayout: React.FC<BasicLayoutProps> = ({
+  children,
+  location,
+  dispatch,
+}) => {
   const { pathname } = location;
 
   useEffect(() => {
