@@ -39,6 +39,7 @@ export default defineConfig({
         { path: '/', component: '@/pages/home/index' },
         { path: '/login', component: '@/pages/login/index' },
         { path: '/search', component: '@/pages/search/index' },
+        { path: '/product/:id', component: '@/pages/product/[id]' },
         {
           path: '/',
           component: '@/layouts/SecurityLayout',
@@ -46,6 +47,7 @@ export default defineConfig({
             { path: '/cart', component: '@/pages/cart/index' },
             { path: '/olist', component: '@/pages/olist/index' },
             { path: '/user', component: '@/pages/user/index' },
+            { path: '/confirmBill', component: '@/pages/confirmBill/index' },
           ],
         },
       ],
