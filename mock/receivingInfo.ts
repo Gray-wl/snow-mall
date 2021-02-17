@@ -21,8 +21,8 @@ function getList() {
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 export default {
   'GET /api/getDefaultReceivingInfo': {
-    name: '高少云',
-    tel: '10909110012',
-    address: '北京市海淀区开课吧',
+    name: 'Gray',
+    tel: '12345673211',
+    address: '上海市浦东新区',
   },
 };

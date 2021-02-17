@@ -11,7 +11,7 @@ export default {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
     status: 1,
-    name: '莎士比亚',
+    name: 'Gray',
     icon: 'https://tva1.sinaimg.cn/large/00831rSTly1gdm7eok2oij301s01sgli.jpg',
     userid: '001',
   },
@@ -38,10 +38,10 @@ export default {
   ],
   'POST /api/login': (req: Request, res: Response) => {
     const { password, name } = req.body;
-    if (password === '123' && name === 'gaoshaoyun') {
+    if (password === '123' && name === 'gray') {
       res.send({
         status: 1,
-        name: '莎士比亚',
+        name: 'Gray',
         icon:
           'https://tva1.sinaimg.cn/large/00831rSTly1gdm7eok2oij301s01sgli.jpg',
         userid: '001',
