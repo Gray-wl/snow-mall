@@ -21,7 +21,7 @@ class CartPage extends Component<ConnectProps, CartState> {
   }
 
   updateProduct = (newState: UpdateProductType) => {
-    const { id, index, count, checked } = newState;
+    const { id, index, count } = newState;
     let data = [...this.state.data];
     if (count === 0) {
       data.splice(index, 1);
@@ -29,7 +29,7 @@ class CartPage extends Component<ConnectProps, CartState> {
       Object.assign(data[index], newState);
     }
 
-    editCart({ id, count }).then((res) => {
+    editCart({ id, count }).then(() => {
       this.setState({ data });
     });
   };

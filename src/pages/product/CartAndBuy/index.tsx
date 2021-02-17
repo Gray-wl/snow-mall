@@ -3,18 +3,17 @@ import { Link, connect, history } from 'umi';
 import { Toast } from 'antd-mobile';
 import classnames from 'classnames';
 import { ProductType } from '@/@types/product';
-import { ConnectState, ConnectProps, CartModelState } from '@/models/connect';
+import { ConnectProps } from '@/models/connect';
 import { editCart } from '@/services/editCart';
 import styles from './index.less';
 
 interface CartAndBuyProps extends ConnectProps {
   product: ProductType;
-  cart: CartModelState;
 }
 
 const CartAndBuy: React.FC<CartAndBuyProps> = ({ product, dispatch }) => {
   const addToCart = useCallback(() => {
-    editCart({ id: product.id, increment: 1 }).then((res) => {
+    editCart({ id: product.id, increment: 1 }).then(() => {
       Toast.success(product.title + '已加入购物车！');
     });
   }, [product]);
@@ -48,4 +47,4 @@ const CartAndBuy: React.FC<CartAndBuyProps> = ({ product, dispatch }) => {
   );
 };
 
-export default connect(({ cart }: ConnectState) => ({ cart }))(CartAndBuy);
+export default connect()(CartAndBuy);
