@@ -4,7 +4,7 @@ import { CartModelState } from './cart';
 import { Location, Dispatch } from 'umi';
 
 export interface ConnectProps {
-  location: Location & { state: { from: string } };
+  location?: Location & { state: { from: string } };
   dispatch: Dispatch;
 }
 
