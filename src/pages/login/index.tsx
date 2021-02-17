@@ -13,7 +13,7 @@ const LoginPage: React.FC<loginPageProps> = ({ user, location, dispatch }) => {
   const { userid } = user.currentUser;
   const isLogon = !!userid;
   if (isLogon) {
-    const { from = '/' } = location.state || {};
+    const { from = '/' } = (location && location.state) || {};
     return <Redirect to={from} />;
   }
 

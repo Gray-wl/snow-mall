@@ -18,7 +18,10 @@ const SecurityLayout: React.FC<SecurityLayoutProps> = ({
     // 没有登录，去登录页
     return (
       <Redirect
-        to={{ pathname: '/login', state: { from: location.pathname } }}
+        to={{
+          pathname: '/login',
+          state: { from: location && location.pathname },
+        }}
       />
     );
   }

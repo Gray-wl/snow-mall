@@ -1,6 +1,11 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  title: '商城',
+  history: {
+    type: 'hash',
+  },
+  // base: "/mall",
   // 编译提速
   nodeModulesTransform: {
     type: 'none',

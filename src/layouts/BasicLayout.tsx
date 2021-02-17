@@ -14,7 +14,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = ({
   location,
   dispatch,
 }) => {
-  const { pathname } = location;
+  const { pathname = '' } = location || {};
   const showBottomNav = pathname !== '/login';
 
   useEffect(() => {
